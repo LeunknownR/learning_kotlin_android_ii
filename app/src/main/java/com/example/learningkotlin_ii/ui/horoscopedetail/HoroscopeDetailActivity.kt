@@ -47,6 +47,10 @@ class HoroscopeDetailActivity : AppCompatActivity() {
     private fun setup() {
         horoscopeDetailViewModel.getHoroscopePrediction(args.zodiac)
         onHoroscopeDetailViewModelChanges()
+        setupIvBack()
+    }
+    private fun setupIvBack() {
+        binding.ivBack.setOnClickListener { onBackPressed() }
     }
     private fun onHoroscopeDetailViewModelChanges() {
         lifecycleScope.launch {

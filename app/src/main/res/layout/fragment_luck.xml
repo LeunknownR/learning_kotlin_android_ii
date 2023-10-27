@@ -1,15 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/primary"
     tools:context=".ui.luck.LuckFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        tools:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <ImageView
+            android:id="@+id/ivRoulette"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:src="@drawable/roulette"
+            android:layout_marginBottom="-250dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <ImageView
+            android:id="@+id/ivCardReverse"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/card_back_small"
+            android:scaleType="fitStart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/predictionView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <ImageView
+            android:id="@+id/ivLuckyCard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingTop="30dp"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/tvLucky"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:text="HOLA HOLA HOLA HOLA HOLA HOLA HOLA HOLA HOLA HOLA HOLA HOLA HOLA"
+            style="@style/Body"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="24dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/ivLuckyCard"
+            app:layout_constraintBottom_toTopOf="@id/tvShare"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/tvShare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/share"
+            android:paddingVertical="15dp"
+            android:paddingHorizontal="15dp"
+            style="@style/BodySecondary"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tvLucky"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
