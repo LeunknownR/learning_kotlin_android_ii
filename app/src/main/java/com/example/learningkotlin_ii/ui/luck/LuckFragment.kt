@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.learningkotlin_ii.databinding.FragmentLuckBinding
-import com.example.learningkotlin_ii.ui.provider.RandomCardProvider
+import com.example.learningkotlin_ii.ui.provider.RandomLuckyCardProvider
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -16,7 +16,7 @@ class LuckFragment : Fragment() {
     private var _binding: FragmentLuckBinding? = null
     private val binding get() = _binding!!
     @Inject
-    lateinit var randomCardProvider: RandomCardProvider
+    lateinit var randomCardProvider: RandomLuckyCardProvider
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +34,7 @@ class LuckFragment : Fragment() {
         }.apply { setup() }
     }
     private fun fillHoroscopePrediction() {
-        randomCardProvider.getLucky()
+        randomCardProvider.getLuckyCard()
             .apply {
                 val horoscopePrediction = getString(text)
                 binding.tvLucky.text = horoscopePrediction

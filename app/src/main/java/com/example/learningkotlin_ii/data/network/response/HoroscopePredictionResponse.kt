@@ -5,9 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 data class HoroscopePredictionResponse(
     @SerializedName("sign") val sign: String,
-    @SerializedName("horoscope") val horoscope: String,
-    @SerializedName("date") val date: String
+    @SerializedName("horoscope") val horoscope: String
 ) {
+    override fun equals(that: Any?): Boolean {
+        if (that == null) return false
+        if (that !is HoroscopePredictionResponse) return false
+        return this.sign == that.sign && this.horoscope == that.horoscope
+    }
     fun toDomain(): HoroscopePrediction {
         return HoroscopePrediction(sign = sign, horoscope = horoscope)
     }
